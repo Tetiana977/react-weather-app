@@ -8,11 +8,13 @@ import "./styles.css";
 export default function App() {
   return (
     <div className="App">
-      <div className="weather-app">
-        <Header />
-        <Description />
-      </div>
+      <div className="container">
+        <div className="weather-app">
+          <Header />
+          <Description />
+        </div>
       <Footer />
+      </div>
     </div>
   );
 }
