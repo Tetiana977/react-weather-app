@@ -17,6 +17,9 @@ export default function Footer() {
           </a>
           by Tetiana Taranova
         </small>
+
+        <button className="btn btn-primary"></button>
+
       </div>
     </div>
   );
