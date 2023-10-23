@@ -8,16 +8,16 @@ export default function Weather(props) {
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
+      ready: true,
       temperature: response.data.main.temp,
       city: response.data.name,
-      date: "Wednasday 07:00",
+      date: new Date(response.data.dt * 1000),
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
       iconUrl: "https://openweathermap.org/img/wn/02d@2x.png",
       /*icon: data.weather[0].icon*/
     });
-    setReady(true);
   }
 
   if (weatherData.ready) {
@@ -30,7 +30,7 @@ export default function Weather(props) {
                 <h1 id="city">{weatherData.city}</h1>
               </li>
               <li>
-                Last updated: <span id="time">{weatherData.date}</span>
+                Last updated: <span id="time">{weatherData.date.getDay()}</span>
               </li>
               <li className="text-capitalize" id="description">{weatherData.description}</li>
               <li>
