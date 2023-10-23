@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import CurrentDate from "./CurrentDate";
 import axios from "axios";
 
 import "./Weather.css";
@@ -30,7 +31,8 @@ export default function Weather(props) {
                 <h1 id="city">{weatherData.city}</h1>
               </li>
               <li>
-                Last updated: <span id="time">{weatherData.date.getDay()}</span>
+                Last updated: <span id="time">
+                  <CurrentDare date={weatherData.date} /></span>
               </li>
               <li className="text-capitalize" id="description">{weatherData.description}</li>
               <li>
