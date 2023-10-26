@@ -5,7 +5,9 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
-  const [weatherData, setWeatherData] = useState({ready: false});
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
+  
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -32,7 +34,7 @@ export default function Weather(props) {
               </li>
               <li>
                 Last updated: <span id="time">
-                  <CurrentDare date={weatherData.date} /></span>
+                  <CurrentDate date={weatherData.date} /></span>
               </li>
               <li className="text-capitalize" id="description">{weatherData.description}</li>
               <li>
@@ -76,10 +78,8 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    const apiKey = "b47fdf6445cd8b64ab889be77dbe56d4";
-    let city = "London";
-    let apiUrl =
-      "https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric";
+    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";

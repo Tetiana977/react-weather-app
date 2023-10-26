@@ -20,6 +20,9 @@ export default function CurrentDate(props) {
         minutes = `0${minutes}`
     }
 
-    return <div>{day} {hours}:{minutes}</div>
-   
+    return (
+        <div>
+            {day} {hours}:{minutes}
+        </div>
+    );
 }
